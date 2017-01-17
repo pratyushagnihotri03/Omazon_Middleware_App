@@ -1,0 +1,18 @@
+product:
+    n -(quantity)> * order
+
+truck:
+    1   ->    n shipment
+
+customer:
+    1   ->    * order
+
+shipment:
+    n   ->  0..1 truck
+    0..1 -> 1 order
+    *   ->    1 customer
+
+order:
+    * -(quantity)> n product
+    1   ->    0..1 shipments
+    *   ->    1 customer

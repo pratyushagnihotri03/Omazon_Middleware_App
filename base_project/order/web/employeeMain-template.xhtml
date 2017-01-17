@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <head>
+        <title>Omazon Inc.</title>
+        <link href="./css/default.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <center>
+        <h1><ui:insert name="title">Default Title</ui:insert></h1>
+
+      <ui:insert name="body">Default Body</ui:insert>
+        
+     <!--   <h:panelGroup rendered="#{employeeManager.productListVisible}">
+            <h2>View All Products</h2>
+            <ui:insert name="productsTable">Default productsTable</ui:insert>
+        </h:panelGroup>
+       
+        <h:panelGroup rendered="#{employeeManager.creatingNewProduct}">
+            <h2>Create New Product</h2>
+        </h:panelGroup>
+        <h:panelGroup rendered="#{!employeeManager.creatingNewProduct}"> -->
+            <h2> Welcome Admin</h2>
+          <!--  </h:panelGroup>-->
+        </center>
+         <ui:insert name="signout">Default new products form</ui:insert>
+         
+         <ui:insert name="addProduct">Default Employee functionality image</ui:insert>
+    </body>
+</html>
+

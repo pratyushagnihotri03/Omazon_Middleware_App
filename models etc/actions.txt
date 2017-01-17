@@ -1,0 +1,15 @@
+truck:
+    send                events
+
+customer:
+    select              product
+    place               order
+
+empoyee:
+    add/edit            product
+    modifie_status      order
+    start               shipment
+
+events:
+    update_status       shipment
+    notify              customer

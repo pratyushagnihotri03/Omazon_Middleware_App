@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+   <body>
+        <ui:composition template="/employeeMain-template.xhtml">
+            <ui:define name="title">Omazon Inc.</ui:define>
+            <ui:define name="body">
+
+            </ui:define>
+            
+            <ui:define name="signout">
+                <h:form>                      
+                    <h:commandButton type="submit" value="Logout" action="#{employeeManager.logout}" styleClass="logmeout" />
+                </h:form>
+            </ui:define>
+            
+            <ui:define name="addProduct">
+                <h:form>  
+                    <table> <tr> 
+                            <td><a href="employee.xhtml"><h:graphicImage id="addProduct" url="/css/addProduct.png" title="Add/Edit Product" alt="Loading" width="200" height="200" /> </a></td>
+                    <td><a href="employee.xhtml"><h:graphicImage id="modifyStatus" url="/css/modifyStatus.png" title="Modify Order Status" alt="Loading" width="200" height="200" /></a></td>
+                    <td><a href="employee.xhtml"><h:graphicImage id="shipment" url="/css/shipment.png" title="Place Shipment" alt="Loading" width="200" height="200"/></a></td>
+                        </tr> </table>
+                </h:form>
+            </ui:define>
+        </ui:composition>
+   
+    </body>
+</html>
+

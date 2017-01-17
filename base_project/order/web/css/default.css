@@ -1,0 +1,67 @@
+body {
+    background: url(image2.jpg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    font-size: 12px;
+    font-family: Verdana, "Verdana CE",  Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
+    color: #000000;  
+    margin: 10px;
+}
+
+h1 {
+    font-family: Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
+    border-bottom: 1px solid #AFAFAF; 
+    font-size:  32px;
+    font-weight: bold;
+    margin: 0px;
+    padding: 0px;
+    color: #D20005;
+    text-align: center
+}
+
+a:link, a:visited {
+  color: #045491;
+  font-weight : bold;
+  text-decoration: none;
+}
+
+a:link:hover, a:visited:hover  {
+  color: #045491;
+  font-weight : bold;
+  text-decoration : underline;
+}
+
+th {
+    font-weight: bold;
+    text-align: center;
+}
+
+td {
+    text-align: center;
+}
+
+.logmeout{
+    position:absolute;
+    top:10px;
+    left:1000px;
+    float:right;
+    text-align: right;
+}
+
+#big_wrapper{
+    text-align:left;
+    width: 1000px;
+    border: 3px yellowgreen solid;
+    margin: 60px auto;
+}
+
+#links{
+    border: 2px bisque solid;
+    font-style: italic;
+    background-color: darkgoldenrod;
+    color: white;
+    padding: 10px;
+}
+

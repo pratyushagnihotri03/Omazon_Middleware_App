@@ -1,0 +1,80 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    <body>
+        <ui:composition template="/employee-template.xhtml">
+            <ui:define name="title">Omazon Inc.</ui:define>
+            <ui:define name="body">
+
+            </ui:define>
+            <ui:define name="signout">
+                <h:form>                      
+                    <h:commandButton type="submit" value="Logout" action="#{employeeManager.logout}" styleClass="logmeout" />
+                </h:form>
+            </ui:define>
+            <ui:define name="productsTable">
+
+                <h:dataTable
+                    var="product"
+                    value="#{employeeManager.products}"
+                    rules="all"
+                    cellpadding="5">
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Product ID" />
+                        </f:facet>
+                        <h:form>
+                            <h:commandLink id="product_id_link" action="employee">
+                                <h:outputText value="#{product.productId}" />
+                                <f:setPropertyActionListener target="#{employeeManager.currentProductId}" value="#{product.productId}" />
+                            </h:commandLink>
+                        </h:form>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Name" />
+                        </f:facet>
+                        <h:outputText value="#{product.productName}" />
+                    </h:column>
+                    
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Price (in €)" />
+                        </f:facet>
+                        <h:outputText value="#{product.productPrice}" />
+                    </h:column>
+                </h:dataTable>
+            </ui:define>
+
+            
+            <ui:define name="newProductForm">
+                <h:form>
+                    <table> 
+                        <tr><td>
+                    <h:outputLabel for="productIdInputText" rendered="true" value="Product ID: " /></td><td>
+                    <h:inputText id="productIdInputText" required="true" value="#{employeeManager.newProductID}"  disabled="#{!employeeManager.creatingNewProduct}"/><br />
+                     </td> </tr> 
+                     <tr><td>
+                    <h:outputLabel for="productNameInputText" rendered="true" value="Name: " /></td><td>
+                    <h:inputText id="productNameInputText" required="true" value="#{employeeManager.newProductName}" /><br />
+                     </td> </tr> 
+                     <tr><td>
+                    <h:outputLabel for="productPriceInputText" rendered="true" value="Price: " /></td><td>
+                    <h:inputText id="productPriceInputText" required="true" value="#{employeeManager.newProductPrice}" /><br />
+                     </td> </tr> </table>
+                   <table>  <tr><td>
+                    <h:commandButton value="Submit" action="#{employeeManager.saveProductForm}" /> </td><td>
+                    <h:commandButton value="Cancel" action="#{employeeManager.cancelProductForm}" rendered="#{!employeeManager.creatingNewProduct}"/>
+                 </td></tr>
+                 </table>
+                </h:form>
+
+            </ui:define>
+            
+        </ui:composition>
+    </body>
+</html>
+

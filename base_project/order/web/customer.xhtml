@@ -1,0 +1,89 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    <body>
+        <ui:composition template="/customer-template.xhtml">
+            <ui:define name="title">Omazon Inc.</ui:define>
+            <ui:define name="body">
+
+            </ui:define>
+            <ui:define name="signout">
+                <h:form>                      
+                    <h:commandButton type="submit" value="Logout" action="#{customerManager.logout}" styleClass="logmeout" />
+                </h:form>
+            </ui:define>
+            <ui:define name="customersTable">
+
+                <h:dataTable
+                    var="customer"
+                    value="#{customerManager.customers}"
+                    rules="all"
+                    cellpadding="4">
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Customer ID" />
+                        </f:facet>
+                        <h:form>
+                            <h:commandLink id="customer_id_link" action="customer">
+                                <h:outputText value="#{customer.customerId}" />
+                                <f:setPropertyActionListener target="#{customerManager.currentCustomerId}" value="#{customer.customerId}" />
+                            </h:commandLink>
+                        </h:form>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Name" />
+                        </f:facet>
+                        <h:outputText value="#{customer.name}" />
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="eMail ID" />
+                        </f:facet>
+                        <h:outputText value="#{customer.emailId}" />
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Address" />
+                        </f:facet>
+                        <h:outputText value="#{customer.address}" />
+                    </h:column>
+                </h:dataTable>
+            </ui:define>
+
+            
+            <ui:define name="newCustomerForm">
+                <h:form>
+                    <table> 
+                        <tr><td>
+                    <h:outputLabel for="customerIdInputText" rendered="true" value="Customer ID: " /> </td> <td>
+                    <h:inputText id="customerIdInputText" required="true" value="#{customerManager.newCustomerId}" disabled="#{!customerManager.creatingNewCustomer}"/><br />
+                       </td> </tr>
+                        <tr><td>
+                    <h:outputLabel for="customerNameInputText" rendered="true" value="Name: " /> </td><td>
+                    <h:inputText id="customerNameInputText" required="true" value="#{customerManager.newCustomerName}" /><br />
+                       </td> </tr>
+                        <tr><td>
+                    <h:outputLabel for="customerEmailInputText" rendered="true" value="Email ID: " /></td><td>
+                    <h:inputText id="customerEmailInputText" required="true" value="#{customerManager.newCustomerEmailId}" /><br />
+                       </td></tr> 
+                        <tr><td>
+                    <h:outputLabel for="customerAddressInputText" rendered="true" value="Address: " /></td><td>
+                    <h:inputText id="customerAddressInputText" required="true" value="#{customerManager.newCustomerAddress}" /><br />
+                       </td> </tr> </table>
+                      <table>  <tr><td>
+                    <h:commandButton value="Submit" action="#{customerManager.saveCustomerForm}" /></td><td>
+                    <h:commandButton value="Cancel" action="#{customerManager.cancelCustomerForm}" rendered="#{!customerManager.creatingNewCustomer}"/>
+                    </td></tr>
+                    </table>
+                </h:form>
+
+            </ui:define>
+            
+        </ui:composition>
+    </body>
+</html>
+

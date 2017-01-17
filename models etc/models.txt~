@@ -1,0 +1,13 @@
+product: name, price
+
+truck: position (lat, lon), capacity (in number of shipments)
+
+customer: name, address, email-id
+
+empoyee: name
+
+shipment: status
+
+order: status, cost*
+
+events: type, text (, src)
